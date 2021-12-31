@@ -1,0 +1,38 @@
+note over browser:
+user input and form submission
+Data is sent as the body of the
+POST request.
+end note
+
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over server:
+Server access the data with req.body.note,
+creates a new note object, pushes it into
+a note array and finally returns a redirect to /notes 
+with res.redirect('/notes')
+end note
+
+
+
+server-->browser: HTTP Status code 302  - Redirects to /exampleapp/notes
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML- code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+note over browser:
+browser starts executing main.js
+that requests JSON data from server 
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{"content":"No, it's","date":"2021-12-30T16:15:12.674Z"}, ...]
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note

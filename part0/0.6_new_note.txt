@@ -1,0 +1,20 @@
+note over browser:
+user submits form 
+end note
+
+note over browser:
+browser selects the form, prevents the default
+handling on submition, creates a new note, adds it
+to the notes array, rerenders the notes list, lastly
+sends the new note to the server
+end note
+
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+
+
+server-->browser: HTTP 201(CREATED) Status code. Response: JSON {"message":"note created"}
+
+
+
